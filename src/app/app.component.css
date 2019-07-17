@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+
+
+#cabecalho {
+  background: #8A0808;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  position: fixed;
+}
+#cabecalho h1 {
+  display: none;
+}
+#cabecalho ul {
+  list-style: none;
+  word-spacing: 30px;
+}
+#cabecalho li {
+  display: inline-block;
+  text-transform: uppercase;
+}
+#cabecalho a {
+  font-size: 18pt;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 200;
+}
+#cabecalho a:hover {
+  color: #585858;
+  transition: 1s;
+}
+#logo {
+  margin: 4px;
+  float: left;
+  width: 50px;
+  height: 50px;
+  background: url('../assets/img/logo.png') no-repeat center;
+  display: block;
+}
+#cabecalho nav {
+  float: right;
+  padding-right: 20px;
+  font-family: 'Raleway', sans-serif;
+}
+#menu-icon {
+  background: url(https://i.ibb.co/5vRFHbL/menu-icon.png) no-repeat center;
+  display: hidden;
+  width: 32px;
+  height: 32px;
+  padding: 13px 0 13px 0;
+}
+
+@media only screen and (max-width:900px) {
+  #cabecalho {
+    position: absolute;
+  }
+  #menu-icon {
+    display: inline-block;
+  }
+  nav ul, nav:active ul {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    margin: 0;
+    background: #8A0808;
+    right: 10px;
+    width: 35%;
+  }
+  nav:hover ul {
+    display: block;
+  }
+  nav li {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+
+  }
+
+}
