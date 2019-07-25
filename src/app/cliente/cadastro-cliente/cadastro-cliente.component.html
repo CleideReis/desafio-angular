@@ -1,0 +1,20 @@
+
+<form [formGroup]="formulario" class="example-form">
+  <mat-form-field class="example-full-width">
+
+    <input formControlName="nome" matInput placeholder="Nome">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+
+    <input formControlName="cpf" matInput placeholder="CPF:">
+  </mat-form-field>
+
+
+</form>
+
+<div class="example-button-row">
+  <button (click)="cadastra()" mat-raised-button>Basic</button>
+</div>
+
+

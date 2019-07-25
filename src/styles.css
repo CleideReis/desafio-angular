@@ -1,37 +1,18 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html {
-  position: relative;
-  min-height: 100%;
-  background: #ffffff;
-}
-
-a {
-  text-decoration: none !important;
-}
-
-html {
-  background-image: url('assets/img/fundo.jpg');
-  background-color: #efefef;
-  background-position: right bottom;
-  background-repeat: no-repeat;
-  background-size: calc(100% - 200px) auto;
-}
 
 body {
-  background: transparent !important;
-
+  background-image: url('assets/img/fundo.jpg');
+  background-position: right bottom;
+  background-repeat: no-repeat;
   margin: 0;
-  overflow-x: hidden !important;
-  color: #FFFFFF;
-  line-height: 32px;
-  font-weight: 300;
-  font-size: 22px;
   padding: 0;
-  word-wrap:break-word !important;
   font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+  height: 100%;
+
 }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+  height: 100%;
+}

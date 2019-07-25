@@ -1,0 +1,44 @@
+<nav>
+  <div id="logo"></div>
+  <!-- menu mobile -->
+  <label for="drop" class="toggle">Menu</label>
+  <input type="checkbox" id="drop" />
+  <!-- menu mobile end-->
+  <ul class="menu">
+
+    <li >
+      <!-- First Tier Drop Down -->
+
+      <a>Cliente</a>
+
+      <ul id=target>
+        <li><a [routerLink]="['cliente','cadastro']">Cadastro</a></li>
+        <li><a routerLink="cliente/consulta">Consulta</a></li>
+      </ul>
+
+    </li>
+    <li >
+      <!-- First Tier Drop Down -->
+
+      <a>Conta</a>
+
+      <ul id=target>
+        <li><a [routerLink]="['conta','cadastro']">Cadastro</a></li>
+        <li><a [routerLink]="['conta','consulta']">Consulta</a></li>
+      </ul>
+
+    </li>
+    <li >
+      <!-- First Tier Drop Down -->
+
+      <a>Transação</a>
+
+      <ul id=target>
+        <li><a [routerLink]="['transacao','saque']">Saque</a></li>
+        <li><a [routerLink]="['transacao','deposito']">Depósito</a></li>
+        <li><a [routerLink]="['transacao','transferencia']">Transferência</a></li>
+      </ul>
+
+    </li>
+  </ul>
+</nav>
