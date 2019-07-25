@@ -1,3 +1,5 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 html {
   position: relative;
   min-height: 100%;
@@ -18,10 +20,18 @@ html {
 
 body {
   background: transparent !important;
-  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+
   margin: 0;
   overflow-x: hidden !important;
-  color: #666666;
+  color: #FFFFFF;
+  line-height: 32px;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 22px;
+  padding: 0;
+  word-wrap:break-word !important;
+  font-family: 'Open Sans', sans-serif;
 }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
