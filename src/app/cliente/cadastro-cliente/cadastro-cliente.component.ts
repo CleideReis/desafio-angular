@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {ClienteService} from "../cliente.service";
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {ClienteService} from '../cliente.service';
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -21,6 +21,6 @@ export class CadastroClienteComponent implements OnInit {
   }
 
   cadastra() {
-    this.clienteService.cadastra(this.formulario.value).subscribe(() => console.log('Criou a merda'));
+    this.clienteService.cadastra(this.formulario.value).subscribe(() => console.log('Criou o cliente'));
   }
 }

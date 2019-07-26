@@ -1,20 +1,21 @@
+<br>
+<fieldset>
+  <legend>Cadastro</legend>
+  <form [formGroup]="formulario" class="example-form">
+    <mat-form-field class="example-full-width">
 
-<form [formGroup]="formulario" class="example-form">
-  <mat-form-field class="example-full-width">
+      <input formControlName="nome" matInput placeholder="Nome">
+    </mat-form-field>
 
-    <input formControlName="nome" matInput placeholder="Nome">
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
 
-  <mat-form-field class="example-full-width">
+      <input formControlName="cpf" matInput placeholder="CPF:">
+    </mat-form-field>
 
-    <input formControlName="cpf" matInput placeholder="CPF:">
-  </mat-form-field>
+  </form>
 
+  <div class="example-button-row">
+    <button (click)="cadastra()" mat-raised-button color="primary">Cadastrar</button>
+  </div>
 
-</form>
-
-<div class="example-button-row">
-  <button (click)="cadastra()" mat-raised-button>Basic</button>
-</div>
-
-
+</fieldset>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ContaService} from '../conta.service';
 
 @Component({
   selector: 'app-cadastro-conta',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroContaComponent implements OnInit {
 
-  constructor() { }
+  formulario: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private contaService: ContaService) { }
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      agencia: this.formBuilder.control('', Validators.required),
+      cpfTitular: this.formBuilder.control('', Validators.required),
+      tipoDoPacoteDeServicos: this.formBuilder.control('', Validators.required)
+    });
   }
 
+  cadastra() {
+    this.contaService.cadastra(this.formulario.value).subscribe(() => console.log('Criou a conta'));
+  }
 }
