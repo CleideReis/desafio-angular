@@ -4,13 +4,19 @@ import { CadastroContaComponent } from './cadastro-conta/cadastro-conta.componen
 import { ConsultaContaComponent } from './consulta-conta/consulta-conta.component';
 import {ContaRoutingModule} from './conta-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {ContaService} from './conta.service';
 
 @NgModule({
   declarations: [CadastroContaComponent, ConsultaContaComponent],
   imports: [
     CommonModule,
     ContaRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [
+    ContaService
   ]
 })
 export class ContaModule { }
