@@ -1,0 +1,64 @@
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 py-5">
+  <form class="form-horizontal" id="contact_form">
+    <fieldset>
+      <legend class="text-center">Emitir Extrato</legend><br>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="agencia">Agência *</label>
+            <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="extrato.agencia" placeholder=" Digite o número da agência" required="required" data-error="Agência inválida!.">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="conta">Conta *</label>
+            <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="extrato.conta" placeholder=" Digite o número da conta" required="required" data-error="Conta inválida">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input id="submit" type="submit" (click)="consultarExtrato()" class="btn btn-success btn-send">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+</div>
+<br>
+
+<div *ngIf="showExtrato">
+<div class="jumbotron" *ngIf="extrato">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Data e Hora</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Valor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let particao of particoes">
+      <td>{{particao.dataHora}}</td>
+      <td>{{particao.tipo}}</td>
+      <td>{{particao.descricao}}</td>
+      <td>{{particao.valor | currency : 'BRL' : 'symbol'}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+

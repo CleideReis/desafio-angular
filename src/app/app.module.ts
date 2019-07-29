@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { BemVindoComponent } from './bem-vindo/bem-vindo.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BemVindoComponent } from './bem-vindo/bem-vindo.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

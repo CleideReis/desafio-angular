@@ -1,1 +1,51 @@
-<p>deposito works!</p>
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 py-5">
+      <form class="form-horizontal" id="contact_form">
+        <fieldset>
+          <legend class="text-center">Depoito em Conta</legend><br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="agencia">Agência *</label>
+                <input type="text" id="agencia" name="agencia" [(ngModel)]="depositoEmConta.agencia" class="form-control" placeholder=" Digite o número da agência" required="required" data-error="Agência inválida!." autofocus>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="conta">Conta *</label>
+                <input type="text" id="conta" name="conta" [(ngModel)]="depositoEmConta.conta" class="form-control" placeholder=" Digite o número da conta" required="required" data-error="Conta inválida!">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="valor">Valor R$*</label>
+                <input type="text" id="valor" name="valor" [(ngModel)]="depositoEmConta.valor" class="form-control" placeholder=" Digite o valor" required="required" data-error="Valor inválido!">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input (click)="deposito()" id="submit" type="submit" class="btn btn-success btn-send">
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+

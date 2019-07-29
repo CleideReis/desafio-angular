@@ -1,9 +1,8 @@
 <nav>
-  <div id="logo"></div>
-  <!-- menu mobile -->
+  <div id="logo" [routerLink]="['bem-vindo']"></div>
   <label for="drop" class="toggle">Menu</label>
   <input type="checkbox" id="drop" />
-  <!-- menu mobile end-->
+
   <ul class="menu">
 
     <li >
@@ -13,7 +12,6 @@
 
       <ul id=target>
         <li><a [routerLink]="['cliente','cadastro']">Cadastro</a></li>
-        <li><a routerLink="cliente/consulta">Consulta</a></li>
       </ul>
 
     </li>
@@ -24,7 +22,6 @@
 
       <ul id=target>
         <li><a [routerLink]="['conta','cadastro']">Cadastro</a></li>
-        <li><a [routerLink]="['conta','consulta']">Consulta</a></li>
       </ul>
 
     </li>
@@ -37,6 +34,8 @@
         <li><a [routerLink]="['transacao','saque']">Saque</a></li>
         <li><a [routerLink]="['transacao','deposito']">Depósito</a></li>
         <li><a [routerLink]="['transacao','transferencia']">Transferência</a></li>
+        <li><a [routerLink]="['transacao','saldo']">Saldo</a></li>
+        <li><a [routerLink]="['transacao','extrato']">Extrato</a></li>
       </ul>
 
     </li>

@@ -1,21 +1,45 @@
+
+
+
 <br>
-<fieldset>
-  <legend>Cadastro</legend>
-  <form [formGroup]="formulario" class="example-form">
-    <mat-form-field class="example-full-width">
+<div class="container">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 py-5">
+      <form [formGroup]="formulario" class="form-horizontal" id="contact_form">
+        <fieldset>
+          <legend class="text-center">Cadastro de Cliente</legend><br>
 
-      <input formControlName="nome" matInput placeholder="Nome">
-    </mat-form-field>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Nome *</label>
+                <input type="text" formControlName="nome" name="nome" class="form-control" placeholder=" Digite o nome" required="required" data-error="Nome inválido!." autofocus>
+              </div>
+            </div>
 
-    <mat-form-field class="example-full-width">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>CPF *</label>
+                <input type="text" formControlName="cpf" name="cpf" class="form-control" placeholder=" Digite o CPF" required="required" data-error="CPF inválido">
+              </div>
+            </div>
+          </div>
 
-      <input formControlName="cpf" matInput placeholder="CPF:">
-    </mat-form-field>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input (click)="cadastra()" id="submit" type="submit" class="btn btn-success btn-send">
+              </div>
+            </div>
+          </div>
 
-  </form>
-
-  <div class="example-button-row">
-    <button (click)="cadastra()" mat-raised-button color="primary">Cadastrar</button>
+        </fieldset>
+      </form>
+    </div>
   </div>
+</div>
 
-</fieldset>
+
+
+
+

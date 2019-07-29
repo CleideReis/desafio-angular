@@ -1,0 +1,44 @@
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 py-5">
+      <form class="form-horizontal" id="contact_form">
+        <fieldset>
+          <legend class="text-center">Emitir Saldo</legend><br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="agencia">Agência *</label>
+                <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="saldo.agencia" placeholder=" Digite o número da agência" required="required" data-error="Agência inválida!." >
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="conta">Conta *</label>
+                <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="saldo.conta" placeholder=" Digite o número da conta" required="required" data-error="Conta inválida">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input id="submit" type="submit" (click)="consultarSaldo()" class="btn btn-success btn-send">
+              </div>
+            </div>
+          </div>
+          <div *ngIf="showSaldo">
+            <h4>Saldo: R$ {{resposta}}</h4>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
