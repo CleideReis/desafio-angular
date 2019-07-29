@@ -1,6 +1,9 @@
 
 <br>
 <div class="container">
+
+  <app-mensagem-feedback [mensagemErro]="mensagemErro"></app-mensagem-feedback>
+
   <div class="row">
     <div class="col-xl-8 offset-xl-2 py-5">
       <form class="form-horizontal" id="contact_form">
@@ -11,14 +14,16 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="agencia">Agência *</label>
-                <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="saldo.agencia" placeholder=" Digite o número da agência" required="required" data-error="Agência inválida!." >
+                <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="saldo.agencia" placeholder=" Digite o número da agência" required #modelAgencia="ngModel" >
+                <app-mensagem-erro [model]="modelAgencia"></app-mensagem-erro>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label for="conta">Conta *</label>
-                <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="saldo.conta" placeholder=" Digite o número da conta" required="required" data-error="Conta inválida">
+                <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="saldo.conta" placeholder=" Digite o número da conta" required #modelConta="ngModel">
+                <app-mensagem-erro [model]="modelConta"></app-mensagem-erro>
               </div>
             </div>
           </div>

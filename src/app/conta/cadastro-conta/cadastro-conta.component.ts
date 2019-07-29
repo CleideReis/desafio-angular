@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ContaService} from '../conta.service';
 
@@ -10,8 +10,11 @@ import {ContaService} from '../conta.service';
 export class CadastroContaComponent implements OnInit {
 
   formulario: FormGroup;
+  mensagemSucesso: string;
+  mensagemErro: string;
 
-  constructor(private formBuilder: FormBuilder, private contaService: ContaService) { }
+  constructor(private formBuilder: FormBuilder, private contaService: ContaService) {
+  }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -22,6 +25,14 @@ export class CadastroContaComponent implements OnInit {
   }
 
   cadastra() {
-    this.contaService.cadastra(this.formulario.value).subscribe(() => console.log('Criou a conta'));
+    this.contaService.cadastra(this.formulario.value).subscribe(
+      () => {
+        this.mensagemSucesso = 'Conta cadastrada com sucesso!';
+        this.mensagemErro = undefined;
+      },
+      erro => {
+        this.mensagemErro = erro.error.mensagem;
+        this.mensagemSucesso = undefined;
+      });
   }
 }

@@ -13,6 +13,8 @@ import * as moment from 'moment';
 export class TransferenciaComponent implements OnInit {
 
   transferencia: Transferencia;
+  mensagemErro: string;
+  mensagemSucesso: string;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -28,7 +30,15 @@ export class TransferenciaComponent implements OnInit {
     const data = moment().format('DD/MM/YYYY');
     const hora = moment().format('hh:mm:ss');
     this.transferencia.dataHora = data.toString() + ' ' + hora.toString();
-    this.servico.transferencia( this.transferencia);
+    this.servico.transferencia( this.transferencia).subscribe(autorizacao => {
+      if (autorizacao.estado === 'AUTORIZADA') {
+        this.mensagemErro = undefined;
+        this.mensagemSucesso = 'Transferência Autorizada!';
+      } else {
+        this.mensagemErro = autorizacao.motivoDaNegacao;
+        this.mensagemSucesso = undefined;
+      }
+    });
   }
 
 }

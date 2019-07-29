@@ -10,6 +10,8 @@ import {ClienteService} from '../cliente.service';
 export class CadastroClienteComponent implements OnInit {
 
   formulario: FormGroup;
+  mensagemSucesso: string;
+  mensagemErro: string;
 
   constructor(private formBuilder: FormBuilder, private clienteService: ClienteService) { }
 
@@ -21,6 +23,14 @@ export class CadastroClienteComponent implements OnInit {
   }
 
   cadastra() {
-    this.clienteService.cadastra(this.formulario.value).subscribe(() => console.log('Criou o cliente'));
+    this.clienteService.cadastra(this.formulario.value).subscribe(
+      () => {
+        this.mensagemSucesso = 'Cliente cadastrado com sucesso!';
+        this.mensagemErro = undefined;
+      },
+      erro => {
+        this.mensagemErro = erro.error.mensagem;
+        this.mensagemSucesso = undefined;
+      });
   }
 }

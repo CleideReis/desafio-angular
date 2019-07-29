@@ -17,6 +17,7 @@ export class ExtratoComponent implements OnInit {
   extrato: Extrato;
   particoes: Particao[];
   showExtrato: boolean;
+  mensagemErro: string;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -34,8 +35,13 @@ export class ExtratoComponent implements OnInit {
     const hora = moment().format('hh:mm:ss');
     this.extrato.dataHora = data.toString() + ' ' + hora.toString();
     this.servico.extrato(this.extrato).subscribe(autorizacao => {
-      this.particoes = JSON.parse(autorizacao.particao);
-      this.showExtrato = true;
+      if (autorizacao.estado === 'AUTORIZADA') {
+        this.mensagemErro = undefined;
+        this.particoes = JSON.parse(autorizacao.particao);
+        this.showExtrato = true;
+      } else {
+        this.mensagemErro = autorizacao.motivoDaNegacao;
+      }
     });
   }
 

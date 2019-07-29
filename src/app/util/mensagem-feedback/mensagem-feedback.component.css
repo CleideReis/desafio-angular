@@ -1,0 +1,13 @@
+#mensErro {
+  background-color: white;
+  border: red;
+  color: red;
+  font-weight: bolder;
+}
+
+#mensSucesso {
+  background-color: white;
+  border: #298A08;
+  color: #298A08;
+  font-weight: bolder;
+}

@@ -12,6 +12,8 @@ import {TipoTransacao} from '../../enuns/tipo-transacao.enum';
 })
 export class SaqueComponent implements OnInit {
   saqueEmConta: Saque;
+  mensagemErro: string;
+  mensagemSucesso: string;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -27,8 +29,15 @@ export class SaqueComponent implements OnInit {
     const data = moment().format('DD/MM/YYYY');
     const hora = moment().format('hh:mm:ss');
     this.saqueEmConta.dataHora = data.toString() + ' ' + hora.toString();
-    this.servico.saque(this.saqueEmConta);
-    console.log('Efetuou o saque');
+    this.servico.saque(this.saqueEmConta).subscribe(autorizacao => {
+      if (autorizacao.estado === 'AUTORIZADA') {
+        this.mensagemErro = undefined;
+        this.mensagemSucesso = 'Saque Autorizado!';
+      } else {
+        this.mensagemErro = autorizacao.motivoDaNegacao;
+        this.mensagemSucesso = undefined;
+      }
+    });
   }
 
 }

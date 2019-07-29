@@ -5,6 +5,7 @@ import {ContaRoutingModule} from './conta-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ContaService} from './conta.service';
+import {UtilModule} from "../util/util.module";
 
 @NgModule({
   declarations: [CadastroContaComponent],
@@ -12,7 +13,8 @@ import {ContaService} from './conta.service';
     CommonModule,
     ContaRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UtilModule
   ],
   providers: [
     ContaService

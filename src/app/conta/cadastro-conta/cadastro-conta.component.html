@@ -1,5 +1,8 @@
 <br>
 <div class="container">
+
+  <app-mensagem-feedback [mensagemSucesso]="mensagemSucesso" [mensagemErro]="mensagemErro"></app-mensagem-feedback>
+
   <div class="row">
     <div class="col-xl-8 offset-xl-2 py-5">
       <form [formGroup]="formulario" class="form-horizontal" id="contact_form">
@@ -10,14 +13,16 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Agência *</label>
-                <input type="text" formControlName="agencia" name="agencia" class="form-control" placeholder=" Digite o número da agência" required="required" data-error="Agência inválida!." autofocus>
+                <input type="text" formControlName="agencia" name="agencia" class="form-control" placeholder=" Digite o número da agência">
+                <app-mensagem-erro [model]="formulario.get('agencia')"></app-mensagem-erro>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label>CPF do Titular *</label>
-                <input type="text" formControlName="cpfTitular" name="cpfTitular" class="form-control" placeholder=" Digite o CPF do titular" required="required" data-error="CPF inválido">
+                <input type="text" formControlName="cpfTitular" name="cpfTitular" class="form-control" placeholder=" Digite o CPF do titular">
+                <app-mensagem-erro [model]="formulario.get('cpfTitular')"></app-mensagem-erro>
               </div>
             </div>
           </div>
@@ -31,13 +36,14 @@
                 <option value="BASICO">Básico</option>
                 <option value="ESPECIAL">Especial</option>
               </select>
+              <app-mensagem-erro [model]="formulario.get('tipoDoPacoteDeServicos')"></app-mensagem-erro>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <input (click)="cadastra()" id="submit" type="submit" class="btn btn-success btn-send">
+                <input [disabled]="formulario.invalid" (click)="cadastra()" id="submit" type="submit" class="btn btn-success btn-send">
               </div>
             </div>
           </div>

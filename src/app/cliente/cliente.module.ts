@@ -6,6 +6,7 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/mate
 import {HttpClientModule} from '@angular/common/http';
 import {ClienteService} from './cliente.service';
 import {ReactiveFormsModule} from '@angular/forms';
+import {UtilModule} from '../util/util.module';
 
 @NgModule({
   declarations: [CadastroClienteComponent],
@@ -16,7 +17,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UtilModule
   ],
   providers: [
     ClienteService

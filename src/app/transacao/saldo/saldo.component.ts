@@ -16,6 +16,7 @@ export class SaldoComponent implements OnInit {
   saldo: Saldo;
   resposta: object;
   showSaldo: boolean;
+  mensagemErro: string;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -33,8 +34,13 @@ export class SaldoComponent implements OnInit {
     const hora = moment().format('hh:mm:ss');
     this.saldo.dataHora = data.toString() + ' ' + hora.toString();
     this.servico.saldo(this.saldo).subscribe(autorizacao => {
-      this.resposta = JSON.parse(autorizacao.particao);
-      this.showSaldo = true;
+      if (autorizacao.estado === 'AUTORIZADA') {
+        this.mensagemErro = undefined;
+        this.resposta = JSON.parse(autorizacao.particao);
+        this.showSaldo = true;
+      } else {
+        this.mensagemErro = autorizacao.motivoDaNegacao;
+      }
     });
   }
 

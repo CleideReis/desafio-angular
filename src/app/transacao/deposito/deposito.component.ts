@@ -11,6 +11,8 @@ import {Deposito} from './deposito';
 export class DepositoComponent implements OnInit {
 
   depositoEmConta: Deposito;
+  mensagemErro: string;
+  mensagemSucesso: string;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -26,8 +28,15 @@ export class DepositoComponent implements OnInit {
     const data = moment().format('DD/MM/YYYY');
     const hora = moment().format('hh:mm:ss');
     this.depositoEmConta.dataHora = data.toString() + ' ' + hora.toString();
-    this.servico.deposito(this.depositoEmConta);
-    console.log('Efetuou o depósito');
+    this.servico.deposito(this.depositoEmConta).subscribe(autorizacao => {
+      if (autorizacao.estado === 'AUTORIZADA') {
+        this.mensagemErro = undefined;
+        this.mensagemSucesso = 'Depósito Autorizado!';
+      } else {
+        this.mensagemErro = autorizacao.motivoDaNegacao;
+        this.mensagemSucesso = undefined;
+      }
+    });
   }
 
 }

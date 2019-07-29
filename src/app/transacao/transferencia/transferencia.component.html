@@ -1,6 +1,9 @@
 
 <br>
 <div class="container">
+
+  <app-mensagem-feedback [mensagemErro]="mensagemErro" [mensagemSucesso]="mensagemSucesso"></app-mensagem-feedback>
+
   <div class="row">
     <div class="col-xl-8 offset-xl-2 py-5">
       <form class="form-horizontal" id="contact_form">
@@ -11,35 +14,40 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="agencia">Agência Origem*</label>
-                <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="transferencia.agencia" placeholder=" Digite o número da agência de origem" required="required" data-error="Agência inválida!." >
+                <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="transferencia.agencia" placeholder=" Digite o número da agência de origem" required #modelAgencia="ngModel">
+                <app-mensagem-erro [model]="modelAgencia"></app-mensagem-erro>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label for="conta">Conta Origem*</label>
-                <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="transferencia.conta" placeholder=" Digite o número da conta de origem" required="required" data-error="Conta inválida">
+                <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="transferencia.conta" placeholder=" Digite o número da conta de origem" required #modelConta="ngModel">
+                <app-mensagem-erro [model]="modelConta"></app-mensagem-erro>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label for="agenciaDestino">Agência Destino *</label>
-                <input type="text" id="agenciaDestino" name="conta" class="form-control" [(ngModel)]="transferencia.agenciaFavorecido" placeholder=" Digite o número da conta" required="required" data-error="Agência inválida">
+                <input type="text" id="agenciaDestino" name="conta" class="form-control" [(ngModel)]="transferencia.agenciaFavorecido" placeholder=" Digite o número da conta" required #modelAgenciaDest="ngModel">
+                <app-mensagem-erro [model]="modelAgenciaDest"></app-mensagem-erro>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label for="contaDestino">Conta Destino *</label>
-                <input type="text" id="contaDestino" name="conta" class="form-control" [(ngModel)]="transferencia.contaFavorecido" placeholder=" Digite o número da conta" required="required" data-error="Conta inválida">
+                <input type="text" id="contaDestino" name="conta" class="form-control" [(ngModel)]="transferencia.contaFavorecido" placeholder=" Digite o número da conta" required #modelContaDest="ngModel">
+                <app-mensagem-erro [model]="modelContaDest"></app-mensagem-erro>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label for="valor">Valor R$*</label>
-                <input type="text" id="valor" name="conta" class="form-control" [(ngModel)]="transferencia.valor" placeholder=" Digite o valor" required="required" data-error="Valor inválido">
+                <input type="text" id="valor" name="conta" class="form-control" [(ngModel)]="transferencia.valor" placeholder=" Digite o valor" required #modelValor="ngModel">
+                <app-mensagem-erro [model]="modelValor"></app-mensagem-erro>
               </div>
             </div>
           </div>
