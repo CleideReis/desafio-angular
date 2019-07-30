@@ -6,6 +6,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ContaService} from './conta.service';
 import {UtilModule} from "../util/util.module";
+import {NgxMaskModule} from "ngx-mask";
 
 @NgModule({
   declarations: [CadastroContaComponent],
@@ -14,7 +15,8 @@ import {UtilModule} from "../util/util.module";
     ContaRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UtilModule
+    UtilModule,
+    NgxMaskModule
   ],
   providers: [
     ContaService

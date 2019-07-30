@@ -18,6 +18,7 @@ export class ExtratoComponent implements OnInit {
   particoes: Particao[];
   showExtrato: boolean;
   mensagemErro: string;
+  mensageShow: boolean;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -30,6 +31,7 @@ export class ExtratoComponent implements OnInit {
   }
 
   consultarExtrato( ) {
+    this.mensageShow = true;
     moment.locale('pt-br');
     const data = moment().format('DD/MM/YYYY');
     const hora = moment().format('hh:mm:ss');
@@ -43,6 +45,9 @@ export class ExtratoComponent implements OnInit {
         this.mensagemErro = autorizacao.motivoDaNegacao;
       }
     });
+    setTimeout(() => {
+      this.mensageShow = false;
+    }, 3000);
   }
 
 }

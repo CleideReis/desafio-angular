@@ -15,6 +15,7 @@ export class TransferenciaComponent implements OnInit {
   transferencia: Transferencia;
   mensagemErro: string;
   mensagemSucesso: string;
+  mensageShow: boolean;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -26,6 +27,7 @@ export class TransferenciaComponent implements OnInit {
   }
 
   transferir( ) {
+    this.mensageShow = true;
     moment.locale('pt-br');
     const data = moment().format('DD/MM/YYYY');
     const hora = moment().format('hh:mm:ss');
@@ -39,6 +41,9 @@ export class TransferenciaComponent implements OnInit {
         this.mensagemSucesso = undefined;
       }
     });
+    setTimeout(() => {
+      this.mensageShow = false;
+    }, 3000);
   }
 
 }

@@ -7,6 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { BemVindoComponent } from './bem-vindo/bem-vindo.component';
 import {HttpClientModule} from '@angular/common/http';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

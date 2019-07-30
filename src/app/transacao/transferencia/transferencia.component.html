@@ -2,7 +2,9 @@
 <br>
 <div class="container">
 
-  <app-mensagem-feedback [mensagemErro]="mensagemErro" [mensagemSucesso]="mensagemSucesso"></app-mensagem-feedback>
+  <div *ngIf="mensageShow">
+    <app-mensagem-feedback [mensagemErro]="mensagemErro" [mensagemSucesso]="mensagemSucesso"></app-mensagem-feedback>
+  </div>
 
   <div class="row">
     <div class="col-xl-8 offset-xl-2 py-5">

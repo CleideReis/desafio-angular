@@ -12,6 +12,7 @@ export class CadastroContaComponent implements OnInit {
   formulario: FormGroup;
   mensagemSucesso: string;
   mensagemErro: string;
+  mensageShow: boolean;
 
   constructor(private formBuilder: FormBuilder, private contaService: ContaService) {
   }
@@ -25,6 +26,7 @@ export class CadastroContaComponent implements OnInit {
   }
 
   cadastra() {
+    this.mensageShow = true;
     this.contaService.cadastra(this.formulario.value).subscribe(
       () => {
         this.mensagemSucesso = 'Conta cadastrada com sucesso!';
@@ -34,5 +36,8 @@ export class CadastroContaComponent implements OnInit {
         this.mensagemErro = erro.error.mensagem;
         this.mensagemSucesso = undefined;
       });
+    setTimeout(() => {
+      this.mensageShow = false;
+    }, 3000);
   }
 }

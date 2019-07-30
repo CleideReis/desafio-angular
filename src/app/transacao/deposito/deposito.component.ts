@@ -13,6 +13,7 @@ export class DepositoComponent implements OnInit {
   depositoEmConta: Deposito;
   mensagemErro: string;
   mensagemSucesso: string;
+  mensageShow: boolean;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -24,6 +25,7 @@ export class DepositoComponent implements OnInit {
   }
 
   deposito( ) {
+    this.mensageShow = true;
     moment.locale('pt-br');
     const data = moment().format('DD/MM/YYYY');
     const hora = moment().format('hh:mm:ss');
@@ -37,6 +39,9 @@ export class DepositoComponent implements OnInit {
         this.mensagemSucesso = undefined;
       }
     });
+    setTimeout(() => {
+      this.mensageShow = false;
+    }, 3000);
   }
 
 }

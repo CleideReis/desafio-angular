@@ -17,6 +17,7 @@ export class SaldoComponent implements OnInit {
   resposta: object;
   showSaldo: boolean;
   mensagemErro: string;
+  mensageShow: boolean;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -29,6 +30,7 @@ export class SaldoComponent implements OnInit {
   }
 
   consultarSaldo( ) {
+    this.mensageShow = true;
     moment.locale('pt-br');
     const data = moment().format('DD/MM/YYYY');
     const hora = moment().format('hh:mm:ss');
@@ -42,6 +44,9 @@ export class SaldoComponent implements OnInit {
         this.mensagemErro = autorizacao.motivoDaNegacao;
       }
     });
+    setTimeout(() => {
+      this.mensageShow = false;
+    }, 2000);
   }
 
 }

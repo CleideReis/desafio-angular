@@ -14,6 +14,7 @@ export class SaqueComponent implements OnInit {
   saqueEmConta: Saque;
   mensagemErro: string;
   mensagemSucesso: string;
+  mensageShow: boolean;
 
   constructor( private servico: TransacaoService ) { }
 
@@ -25,6 +26,7 @@ export class SaqueComponent implements OnInit {
   }
 
   saque( ) {
+    this.mensageShow = true;
     moment.locale('pt-br');
     const data = moment().format('DD/MM/YYYY');
     const hora = moment().format('hh:mm:ss');
@@ -38,6 +40,9 @@ export class SaqueComponent implements OnInit {
         this.mensagemSucesso = undefined;
       }
     });
+    setTimeout(() => {
+      this.mensageShow = false;
+    }, 3000);
   }
 
 }

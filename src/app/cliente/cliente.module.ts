@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ClienteService} from './cliente.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {UtilModule} from '../util/util.module';
+import {NgxMaskModule} from "ngx-mask";
 
 @NgModule({
   declarations: [CadastroClienteComponent],
@@ -18,7 +19,8 @@ import {UtilModule} from '../util/util.module';
     MatButtonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    UtilModule
+    UtilModule,
+    NgxMaskModule
   ],
   providers: [
     ClienteService
