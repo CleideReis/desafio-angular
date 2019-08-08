@@ -2,22 +2,25 @@
 <br>
 <div class="container">
 
-  <div *ngIf="mensageShow">
+  <div *ngIf="mensagemErro">
     <app-mensagem-feedback [mensagemErro]="mensagemErro"></app-mensagem-feedback>
   </div>
 
   <div class="row">
     <div class="col-xl-8 offset-xl-2 py-5">
+      <form class="form-horizontal" id="contact_form">
+        <fieldset>
       <legend class="text-center">Consultar Cliente</legend><br>
 
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label for="cpf">CPF *</label>
-            <input type="text" id="cpf" name="agencia" class="form-control" [(ngModel)]="cliente.cpf" placeholder=" Digite o número do CPF:" required #modelCpf="ngModel" >
+            <input type="text" id="cpf" name="cpf" mask="000.000.000-00" class="form-control" [(ngModel)]="cliente.cpf" placeholder="000.000.000-00" required #modelCpf="ngModel" >
             <app-mensagem-erro [model]="modelCpf"></app-mensagem-erro>
           </div>
         </div>
+      </div>
 
         <div class="row">
           <div class="col-md-12">
@@ -26,11 +29,25 @@
             </div>
           </div>
         </div>
+          <br>
         <div class="row" *ngIf="showCliente">
-          <h2>Cliente: {{cliente.nome}}</h2><br>
-          <h4>CPF: {{cliente.cpf}}</h4><br>
-          <h4>Situação: {{cliente.situacao}}</h4>
+          <table>
+            <tr>
+              <th>Nome: </th>
+              <th>{{cliente.nome}}</th>
+            </tr>
+            <tr>
+              <td>CPF: </td>
+              <td>{{cliente.cpf}}</td>
+            </tr>
+            <tr>
+              <td>Situação: </td>
+              <td>{{cliente.situacao}}</td>
+            </tr>
+          </table>
         </div>
+        </fieldset>
+        </form>
       </div>
   </div>
 </div>

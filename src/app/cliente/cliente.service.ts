@@ -16,8 +16,8 @@ export class ClienteService {
     return this.http.post(`${environment.apiUrl}/cliente/cadastra`, cliente);
   }
 
-  consulta(cliente: Cliente): Observable<any> {
+  consulta(cliente: Cliente): Observable<Cliente> {
     const cpf = cliente.cpf;
-    return this.http.get(`${environment.apiUrl}/cliente/consulta/${cpf}`);
+    return this.http.get<Cliente>(`${environment.apiUrl}/cliente/consulta/${cpf}`);
   }
 }

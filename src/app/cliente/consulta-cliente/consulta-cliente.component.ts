@@ -9,7 +9,6 @@ import {Cliente} from '../cliente';
 })
 export class ConsultaClienteComponent implements OnInit {
   cliente: Cliente;
-  mensageShow: boolean;
   mensagemErro: string;
   showCliente: boolean;
 
@@ -21,18 +20,15 @@ export class ConsultaClienteComponent implements OnInit {
   }
 
   consultaCliente() {
-    this.mensageShow = true;
-
     this.servico.consulta(this.cliente).subscribe(
-      () => {
-        if (this.cliente.cpf != null) {
-          this.mensagemErro = undefined;
-          console.log(this.cliente);
-          this.showCliente = true;
-        }});
+      (cliente) => {
+        this.cliente = cliente;
+        this.showCliente = true;
+      },
+      (error => this.mensagemErro = error.error.mensagem));
 
     setTimeout(() => {
-      this.mensageShow = false;
+      this.mensagemErro = undefined;
     }, 2000);
   }
 }

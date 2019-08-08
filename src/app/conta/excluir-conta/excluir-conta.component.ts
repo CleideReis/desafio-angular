@@ -28,7 +28,8 @@ export class ExcluirContaComponent implements OnInit {
         if (this.conta.agencia != null) {
           this.mensagemErro = undefined;
           this.mensagemSucesso = 'Conta cancelada!!';
-        }});
+        }},
+      error1 => this.mensagemErro = error1.error.mensagem);
     setTimeout(() => {
       this.mensageShow = false;
     }, 3000);
