@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+
+.container {
+  max-width: 80%;
+  margin: auto;
+  padding: 40px;
+  background: #cccccc;
+  border: 10px solid #8A0808;
+}
+
+#submit {
+  background-color: #8A0808;
+  border: #8A0808;
+}

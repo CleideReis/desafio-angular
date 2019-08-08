@@ -5,12 +5,13 @@ import {ClienteRoutingModule} from './cliente-routing.module';
 import {MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {ClienteService} from './cliente.service';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UtilModule} from '../util/util.module';
-import {NgxMaskModule} from "ngx-mask";
+import {NgxMaskModule} from 'ngx-mask';
+import { ConsultaClienteComponent } from './consulta-cliente/consulta-cliente.component';
 
 @NgModule({
-  declarations: [CadastroClienteComponent],
+  declarations: [CadastroClienteComponent, ConsultaClienteComponent],
   imports: [
     CommonModule,
     ClienteRoutingModule,
@@ -20,7 +21,8 @@ import {NgxMaskModule} from "ngx-mask";
     HttpClientModule,
     ReactiveFormsModule,
     UtilModule,
-    NgxMaskModule
+    NgxMaskModule,
+    FormsModule
   ],
   providers: [
     ClienteService

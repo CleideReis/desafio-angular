@@ -1,0 +1,48 @@
+
+<br>
+<div class="container">
+
+  <div *ngIf="mensageShow">
+    <app-mensagem-feedback [mensagemErro]="mensagemErro" [mensagemSucesso]="mensagemSucesso"></app-mensagem-feedback>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 py-5">
+      <form class="form-horizontal" id="contact_form">
+        <fieldset>
+          <legend class="text-center">Emitir Saldo</legend><br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="agencia">Agência *</label>
+                <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="conta.agencia" placeholder=" Digite o número da agência" required #modelAgencia="ngModel" >
+                <app-mensagem-erro [model]="modelAgencia"></app-mensagem-erro>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="conta">Conta *</label>
+                <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="conta.numero" placeholder=" Digite o número da conta" required #modelConta="ngModel">
+                <app-mensagem-erro [model]="modelConta"></app-mensagem-erro>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input id="submit" type="submit" (click)="remove()" class="btn btn-success btn-send">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+

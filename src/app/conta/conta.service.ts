@@ -14,4 +14,10 @@ export class ContaService {
   cadastra(conta: Conta): Observable<any> {
     return this.http.post(`${environment.apiUrl}/conta/cadastra`, conta);
   }
+
+  remove(conta: Conta): Observable<any> {
+    const agencia = conta.agencia;
+    const numero = conta.numero;
+    return  this.http.delete(`${environment.apiUrl}/conta/remove/${agencia}/${numero}`);
+  }
 }
