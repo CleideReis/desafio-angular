@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Extrato} from './extrato';
 import {Canal} from '../../enuns/canal.enum';
 import {TipoTransacao} from '../../enuns/tipo-transacao.enum';
 import {TransacaoService} from '../transacao.service';
 import * as moment from 'moment';
 import {Particao} from './particao';
+import {ComprovanteService} from "./comprovante.service";
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ExtratoComponent implements OnInit {
   mensagemErro: string;
   mensageShow: boolean;
 
-  constructor( private servico: TransacaoService ) { }
+  constructor(private servico: TransacaoService, private comprovanteService: ComprovanteService) {
+  }
 
   ngOnInit() {
     this.extrato = new Extrato();
@@ -28,26 +30,8 @@ export class ExtratoComponent implements OnInit {
     this.extrato.nsuOrigem = 1;
     this.extrato.canal = Canal.EXTRACASH;
     this.extrato.tipo = TipoTransacao.EXTRATO;
-  }
 
-  consultarExtrato( ) {
-    this.mensageShow = true;
-    moment.locale('pt-br');
-    const data = moment().format('DD/MM/YYYY');
-    const hora = moment().format('hh:mm:ss');
-    this.extrato.dataHora = data.toString() + ' ' + hora.toString();
-    this.servico.extrato(this.extrato).subscribe(autorizacao => {
-      if (autorizacao.estado === 'AUTORIZADA') {
-        this.mensagemErro = undefined;
-        this.particoes = JSON.parse(autorizacao.particao);
-        this.showExtrato = true;
-      } else {
-        this.mensagemErro = autorizacao.motivoDaNegacao;
-      }
-    });
-    setTimeout(() => {
-      this.mensageShow = false;
-    }, 3000);
+    this.comprovanteService.notificacao.subscribe((notificacao) => this.particoes = notificacao);
   }
 
 }

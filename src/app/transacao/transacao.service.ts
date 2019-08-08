@@ -36,4 +36,8 @@ export class TransacaoService {
   extrato(extrato: Extrato): Observable<Autorizacao> {
     return this.http.post<Autorizacao>(`${environment.apiUrl}/autorizar/extrato`, extrato);
   }
+
+  extratoPorPeriodo(extrato: Extrato): Observable<Autorizacao> {
+    return this.http.post<Autorizacao>(`${environment.apiUrl}/autorizar/extrato-por-periodo`, extrato);
+  }
 }

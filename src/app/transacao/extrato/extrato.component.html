@@ -1,4 +1,3 @@
-
 <br>
 <div class="container">
 
@@ -8,70 +7,51 @@
 
   <div class="row">
     <div class="col-xl-8 offset-xl-2 py-5">
-  <form class="form-horizontal" id="contact_form">
-    <fieldset>
-      <legend class="text-center">Emitir Extrato</legend><br>
+        <fieldset>
+          <legend class="text-center">Emitir Extrato</legend>
+          <br>
 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="agencia">Agência *</label>
-            <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="extrato.agencia" placeholder=" Digite o número da agência" required #modelAgencia="ngModel">
-            <app-mensagem-erro [model]="modelAgencia"></app-mensagem-erro>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-primary " routerLink="todos-lancamentos" routerLinkActive="active">Todos os lançamentos</a>
+            <a class="btn btn-primary" routerLink="por-periodo" routerLinkActive="active">Lancamentos por periodo</a>
           </div>
-        </div>
 
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="conta">Conta *</label>
-            <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="extrato.conta" placeholder=" Digite o número da conta" required #modelConta="ngModel">
-            <app-mensagem-erro [model]="modelConta"></app-mensagem-erro>
-          </div>
-        </div>
-      </div>
+          <router-outlet></router-outlet>
 
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <input id="submit" type="submit" (click)="consultarExtrato()" class="btn btn-success btn-send">
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </form>
-</div>
-</div>
-</div>
-
-<div *ngIf="showExtrato">
-<div class="jumbotron" *ngIf="extrato">
-  <div class="row">
-    <div class="col-xl-8 offset-xl-2 py-5">
-      <form class="form-horizontal" id="table_extrato">
-        <fieldset id="tabela">
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Data e Hora</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let particao of particoes">
-              <td>{{particao.dataHora}}</td>
-              <td>{{particao.tipo}}</td>
-              <td>{{particao.descricao}}</td>
-              <td>{{(particao.tipo !== 'DEBITO' ? particao.valor : '-' + particao.valor) | currency : 'BRL' : 'symbol'}}</td>
-            </tr>
-            </tbody>
-          </table>
         </fieldset>
-      </form>
     </div>
   </div>
 </div>
+
+<div *ngIf="particoes">
+  <div class="jumbotron" *ngIf="extrato">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 py-5">
+        <form class="form-horizontal" id="table_extrato">
+          <fieldset id="tabela">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Data e Hora</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let particao of particoes">
+                <td>{{particao.dataHora}}</td>
+                <td>{{particao.tipo}}</td>
+                <td>{{particao.descricao}}</td>
+                <td>{{(particao.tipo !== 'DEBITO' ? particao.valor : '-' + particao.valor) | currency : 'BRL' : 'symbol'}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 

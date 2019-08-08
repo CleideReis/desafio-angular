@@ -6,4 +6,6 @@ export class Extrato {
   agencia: number;
   conta: number;
   valor: string;
+  dataInicial?: string;
+  dataFinal?: string;
 }

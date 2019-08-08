@@ -1,0 +1,32 @@
+<form class="form-horizontal" id="contact_form">
+  <fieldset>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="agencia">Agência *</label>
+          <input type="text" id="agencia" name="agencia" class="form-control" [(ngModel)]="extrato.agencia"
+                 placeholder=" Digite o número da agência" required #modelAgencia="ngModel">
+          <app-mensagem-erro [model]="modelAgencia"></app-mensagem-erro>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="conta">Conta *</label>
+          <input type="text" id="conta" name="conta" class="form-control" [(ngModel)]="extrato.conta"
+                 placeholder=" Digite o número da conta" required #modelConta="ngModel">
+          <app-mensagem-erro [model]="modelConta"></app-mensagem-erro>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <input id="submit" type="submit" (click)="consultarExtrato()" class="btn btn-success btn-send">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
