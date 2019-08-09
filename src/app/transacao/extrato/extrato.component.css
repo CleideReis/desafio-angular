@@ -14,10 +14,16 @@ h1 {
 #submit {
   background-color: #8A0808;
   border: #8A0808;
+  position: center;
 }
 
 #tabela {
   background: #F3E2A9;
   border: 1px solid #8A0808;
   font-family: Consolas;
+}
+
+#botao {
+  background-color: #8A0808;
+  border: 1px solid #8A0808;
 }

@@ -10,12 +10,11 @@
         <fieldset>
           <legend class="text-center">Emitir Extrato</legend>
           <br>
-
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <a class="btn btn-primary " routerLink="todos-lancamentos" routerLinkActive="active">Todos os lançamentos</a>
-            <a class="btn btn-primary" routerLink="por-periodo" routerLinkActive="active">Lancamentos por periodo</a>
+          <div>
+            <a id="botao" class="btn btn-primary btn-lg btn-block" routerLink="todos-lancamentos" routerLinkActive="active">Todos os lançamentos</a>
+            <a id="botao" class="btn btn-secondary btn-lg btn-block" routerLink="por-periodo" routerLinkActive="active">Lancamentos por periodo</a>
           </div>
-
+          <br><br>
           <router-outlet></router-outlet>
 
         </fieldset>
